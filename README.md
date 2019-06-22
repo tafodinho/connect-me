@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# connect-me
+A social media network where users post feeds and sened friend request to other users
+>>>>>>> 2b8eb0823b69326932493fbf6890a226739b81d2
