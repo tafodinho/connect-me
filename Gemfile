@@ -10,6 +10,10 @@ gem 'rails', '~> 5.2.3'
 # Device gem
 gem 'devise'
 
+# Bootstrap gem
+gem 'bootstrap3-rails'
+gem 'jquery-rails'
+
 # Use pg as the database for Active Record
 gem 'pg'
 gem 'dotenv-rails'
