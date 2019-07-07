@@ -1,4 +1,10 @@
-
+a {
+  color: white;
+}
+.navbar {
+  background: #4267b2;
+  color: white
+}
 #logo {
     float: left;
     margin-right: 10px;
@@ -9,7 +15,7 @@
     padding-top: 9px;
     font-weight: bold;
   
-  &:hover {
+  &:hover { 
     color: #fff;
     text-decoration: none;
   }
