@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_action :check_login
+ before_action :check_login
 
   def home
     
