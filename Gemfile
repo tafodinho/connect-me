@@ -9,6 +9,8 @@ gem 'rails', '~> 5.2.3'
 
 # Device gem
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # Bootstrap gem
 gem 'bootstrap3-rails'
