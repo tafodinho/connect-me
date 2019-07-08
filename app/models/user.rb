@@ -7,6 +7,10 @@ class User < ApplicationRecord
   has_many :comments 
   has_many :likes 
   has_many :friends, through: :friendship
+
+  validates :name, presence: true 
+  validates :email, presence: true
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
