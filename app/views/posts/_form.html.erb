@@ -10,9 +10,9 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= form.label "What's on your mind" %><br />
-    <%= form.text_area :content, col: 4, row: 15, autofocus: true, autocomplete: "content" %>
+  <div class="form-group">
+    <%= form.label "Create Post", :class =>"post-label" %><br />
+    <%= form.text_area :content, col: 4, row: 15, autofocus: true, autocomplete: "content", placeholder:"What's on your mind", :class =>"form-control" %>
   </div>
   <div class="actions">
     <%= form.submit %>
