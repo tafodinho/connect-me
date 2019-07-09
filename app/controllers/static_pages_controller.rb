@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
  before_action :check_login
 
   def home
-    
+    @posts = Post.all
   end
 
   private 

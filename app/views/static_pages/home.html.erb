@@ -1,20 +1,24 @@
 <div class = "card col-lg-6 col-lg-offset-3 mb-3">
     <%= render partial: 'posts/form', :locals => {:post => new_post}%>
 </div>
-<div class = "card col-lg-6 col-lg-offset-3 mt-3">
-    <div class= "card-header">
-         <%= image_tag("avatar.jpg",:class => "avatar") %> 
-        <h4>User name</h4>
-        <p class="text-muted">2 days ago</p>
-    </div>
-    <div class="card-body">
-        <p>
-            Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
-        </p>
-    </div>
-    <hr>
-    <div class="card-footer footer-card text-muted">
-        <div class = "col-lg-6">like </div>
-        <div class = "col-lg-6">comments </div> 
-    </div>
-</div>
+
+    <% @posts.each do |post| %>
+        <div class = "card col-lg-6 col-lg-offset-3 mt-3">
+            <div class= "card-header">
+                <%= image_tag("avatar.jpg", :class => "avatar") %> 
+                <h4><%= post.user.name %></h4>
+                <p class="text-muted">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
+            </div>
+            <div class="card-body">
+                <p>
+                    <%= post.content %>
+                </p>
+            </div>
+            <hr>
+            <div class="card-footer footer-card text-muted">
+                <div class = "col-lg-6">like </div>
+                <div class = "col-lg-6">comments </div> 
+            </div>
+        </div>
+    <% end %>
+
