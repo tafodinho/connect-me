@@ -29,3 +29,22 @@ body {
 .main-section {
     margin-top: 60px
 }
+.card{
+  background: #fff;
+  border: 1px solid #ddd; 
+  border-radius: 3px;
+}
+.footer-card{
+    padding-bottom: 5%;
+  text-align: center;
+}
+hr{
+  margin-bottom: 10px;
+}
+.avatar{
+  width: 10%;
+  height: 10%;
+  border-radius: 50%;
+  float: left;
+  margin-right: 1%;
+}
