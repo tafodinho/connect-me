@@ -1,0 +1,20 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label "What's on your mind" %><br />
+    <%= form.text_area :content, col: 4, row: 15, autofocus: true, autocomplete: "content" %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
