@@ -6,10 +6,21 @@
         <div class = "card col-lg-6 col-lg-offset-3 mt-3">
             <div class= "card-header">
                 <%= image_tag("avatar.jpg", :class => "avatar") %> 
+                <div class="col-lg-6 title-name">
                 <h4><%= post.user.name %></h4>
                 <p class="text-muted">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
+                </div>
+                <div class="dropdown pull-right">
+                    <i class=" dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       <%= fa_icon 'ellipsis-h'%>
+                    </i>
+                    <div class="dropdown-menu pull-right" aria-labelledby="dropdownMenu2">
+                        <a class="dropdown-item" type="button">edit</a><br>
+                        <a class="dropdown-item" type="button">delete</a>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
+            <div class="card-body clear">
                 <p>
                     <%= post.content %>
                 </p>
@@ -23,6 +34,9 @@
                 <div class="comment-section">
                     <%= image_tag("avatar.jpg", :class => "avatar comment-avatar") %>
                     <input type="text" class="comment-input">
+                </div>
+                <div class="comment-display-section">
+                
                 </div>
             </div>
         </div>
