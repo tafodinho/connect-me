@@ -11,7 +11,8 @@ gem 'rails', '~> 5.2.3'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
-
+# font awesome
+gem 'font_awesome5_rails'
 # Bootstrap gem
 gem 'bootstrap3-rails'
 gem 'jquery-rails'
