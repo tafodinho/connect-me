@@ -15,9 +15,11 @@
                        <%= fa_icon 'ellipsis-h'%>
                     </i>
                     <div class="dropdown-menu pull-right" aria-labelledby="dropdownMenu2">
-                    <%= link_to "Edit", controller: "posts", action: "edit", id: post%>
-                    <%= link_to "Remove", post, :method => :delete, :data => {:confirm => "You Sure?"} %>
                         
+                        <%= link_to "Edit", edit_post_path(post), :class=>"mod-links"%>
+
+                        <%= link_to "Remove", post, :method => :delete, :data => {:confirm => "You Sure?"},:class=>"mod-links" %>
+                            
                     </div>
                 </div>
             </div>
