@@ -58,6 +58,20 @@ hr{
 .post-label{
   padding-top: 2%;
 }
+.comment-input {
+  background: #f2f3f5;
+  border-radius: 20px;
+  border: 1px solid #9dbfd9;
+  width: 80%;
+  height: 38px;
+}
 .clear{
   clear:both;
+}
+
+.comment-display-section {
+  margin-left: 30px;
+}
+h5 {
+  font-weight: bold;
 }
