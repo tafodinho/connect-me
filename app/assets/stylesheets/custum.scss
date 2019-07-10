@@ -59,11 +59,7 @@ hr{
   padding-top: 2%;
 }
 .comment-input {
-  background: #f2f3f5;
-  border-radius: 20px;
-  border: 1px solid #9dbfd9;
-  width: 80%;
-  height: 38px;
+  
 }
 .clear{
   clear:both;
@@ -74,4 +70,30 @@ hr{
 }
 h5 {
   font-weight: bold;
+}
+
+// comment section
+
+.comment-section {
+  display:flex;
+  flex-direction:row;
+  background: #f2f3f5;
+  border-radius: 20px;
+  border: 1px solid #9dbfd9;
+  width: 100%;
+  height: 38px;
+  padding: 2px;
+
+  input {
+    flex-grow: 2;
+    padding: 2px;
+    border: none
+  }
+
+  button {
+    border:1px solid blue;
+    background:blue;
+    color:white;
+    border-radius: 20px
+  }
 }
