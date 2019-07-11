@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'likes/index'
+  get 'likes/new'
+  get 'likes/create'
+  get 'likes/update'
+  get 'likes/destroy'
   get 'comments/index'
   get 'comments/show'
   get 'comments/new'
@@ -8,11 +13,12 @@ Rails.application.routes.draw do
   
   resources :posts
   resources :comments
+  resources :likes
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :users, only: [:show]
-  
+
   root to: 'static_pages#home'
 
   devise_scope :user do
