@@ -31,7 +31,7 @@
                 <div class = "col-lg-6">comments </div> 
             </div>
             <div class="comment card-footer">
-            <%= form_for @comment, url: new_comment_path(), method: 'get' do |f| %>
+            <%= form_for Comment.new, url: new_comment_path(), method: 'get' do |f| %>
                 <div class="comment-section">
                     <input type="hidden" value='<%= post.id %>', name='comment[post_id]'>
                     <%= f.text_field :content, class_name: "comment_input" %>
