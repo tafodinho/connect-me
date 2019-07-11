@@ -1,47 +1,51 @@
 <p id="notice"><%= notice %></p>
-<% posts.each do |post| %>
-    <div class = "card col-lg-6 col-lg-offset-3 mt-3">
-        <div class= "card-header">
-            <%= image_tag("avatar.jpg", :class => "avatar mt-3") %> 
-            <div class="col-lg-6 title-name">
-            <h4><%= post.user.name %></h4>
-            <p class="text-muted">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
-            </div>
-            <div class="dropdown pull-right">
-                <i class=" dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   <%= fa_icon 'ellipsis-h'%>
-                </i>
-                <div class="dropdown-menu pull-right" aria-labelledby="dropdownMenu2">
-                    
-                    <%= link_to "Edit", edit_post_path(post), :class=>"mod-links"%>
-
-                    <%= link_to "Remove", post_path(post), :method => :delete, :data => {:confirm => "You Sure?"},:class=>"mod-links" %>
+ <% @posts.each do |post| %>
+        <div class = "card col-lg-6 col-lg-offset-3 mt-3">
+            <div class= "card-header">
+                <%= image_tag("avatar.jpg", :class => "avatar mt-3") %> 
+                <div class="col-lg-6 title-name">
+                <h4><%= post.user.name %></h4>
+                <p class="text-muted">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
+                </div>
+                <div class="dropdown pull-right">
+                    <i class=" dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       <%= fa_icon 'ellipsis-h'%>
+                    </i>
+                    <div class="dropdown-menu pull-right" aria-labelledby="dropdownMenu2">
                         
+                        <%= link_to "Edit", edit_post_path(post), :class=>"mod-links"%>
+
+                        <%= link_to "Remove", post, :method => :delete, :data => {:confirm => "You Sure?"},:class=>"mod-links" %>
+                            
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="card-body clear">
-            <p>
-                <%= post.content %>
-            </p>
-        </div>
-        <hr>
-        <div class="card-footer footer-card text-muted">
-            <div class = "col-lg-6">like </div>
-            <div class = "col-lg-6">comments </div> 
-        </div>
-        <div class="comment card-footer">
-            <div class="comment-section">
-                <input type="text" class="comment-input">
-                <button>send</button>
+            <div class="card-body clear">
+                <p>
+                    <%= post.content %>
+                </p>
             </div>
-            <div class="comment-display-section">
-                <%= image_tag("avatar.jpg", :class => "avatar comment-avatar") %>
-                <h5>Tafang Joshua</h5>
-                <span>Lol this is not funny at all</span>
+            <hr>
+            <div class="card-footer footer-card text-muted">
+                <div class = "col-lg-6">like </div>
+                <div class = "col-lg-6">comments </div> 
+            </div>
+            <div class="comment card-footer">
+            <%= form_for @comment, url: new_comment_path(), method: 'get' do |f| %>
+                <div class="comment-section">
+                    <input type="hidden" value='<%= post.id %>', name='comment[post_id]'>
+                    <%= f.text_field :content, class_name: "comment_input" %>
+                    <button type='submit'>comment</button>
+                </div>
+            <% end %>
+                <% post.comments.each do |comment| %>
+                    <div class="comment-display-section">
+                        <%= image_tag("avatar.jpg", :class => "avatar comment-avatar") %>
+                        <h5><%= comment.user.name %></h5>
+                        <span><%= comment.content %></span>
+                    </div>
+                    <hr>
+                <% end %>
             </div>
         </div>
-    </div>
-<% end %>
-
-
+    <% end %>
