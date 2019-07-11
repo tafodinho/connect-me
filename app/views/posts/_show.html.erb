@@ -2,7 +2,7 @@
  <% posts.each do |post| %>
         <div class = "card col-lg-6 col-lg-offset-3 mt-3">
             <div class= "card-header">
-                <%= image_tag("avatar.jpg", :class => "avatar mt-3") %> 
+                <%= image_tag(post.user.image, :class => "avatar mt-3") %> 
                 <div class="col-lg-6 title-name">
                 <h4><%= post.user.name %></h4>
                 <p class="text-muted">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
@@ -30,14 +30,14 @@
             <div class="comment card-footer">
             <%= form_for Comment.new, url: new_comment_path(), method: 'get' do |f| %>
                 <div class="comment-section">
-                    <input type="hidden" value='<%= post.id %>', name='comment[post_id]'>
+                    <input type="hidden" value='<%= post.id %>', name='comment[post_id]' class="comment-avatar">
                     <%= f.text_field :content, class_name: "comment_input" %>
                     <button type='submit'>comment</button>
                 </div>
             <% end %>
                 <% post.comments.each do |comment| %>
                     <div class="comment-display-section">
-                        <%= image_tag("avatar.jpg", :class => "avatar comment-avatar") %>
+                        <%= image_tag(comment.user.image, :class => "avatar comment-avatar") %>
                         <h5><%= comment.user.name %></h5>
                         <span><%= comment.content %></span>
                     </div>
