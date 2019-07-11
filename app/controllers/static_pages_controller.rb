@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
 
   def home
     @posts = Post.all
+    @comment = Comment.new
   end
 
   private 

@@ -2,7 +2,12 @@ body {
   background: #e9ebee;
   
 }
-
+hr {
+  margin: 10px 0 10px 0
+}
+h5 {
+  font-weight: bold;
+}
 .navbar a {
   color: #ffffff;
 }
@@ -39,9 +44,6 @@ body {
     padding-bottom: 5%;
   text-align: center;
 }
-hr{
-  margin-bottom: 10px;
-}
 .avatar{
   width: 10%;
   height: 10%;
@@ -67,9 +69,6 @@ hr{
 
 .comment-display-section {
 }
-h5 {
-  font-weight: bold;
-}
 
 // comment section
 
@@ -85,15 +84,18 @@ h5 {
 
   input {
     flex-grow: 2;
-    padding: 2px;
-    border: none
+    padding: 2px 15px 2px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #f2f3f5;
   }
 
   button {
     border:1px solid #4267b2;
     background:#4267b2;
     color:white;
-    border-radius: 20px
+    border-radius: 20px;
+    height: 100%;
   }
 }
 .mod-links{

@@ -34,15 +34,26 @@
                 <div class = "col-lg-6">comments </div> 
             </div>
             <div class="comment card-footer">
+            <%= form_for @comment, url: new_comment_path(), method: 'get' do |f| %>
                 <div class="comment-section">
-                    <input type="text" class="comment-input">
-                    <button>send</button>
+                    <input type="hidden" value='<%= post.id %>', name='comment[:post_id]'>
+                    <%= f.text_field :content, class_name: "comment_input" %>
+                    <button type='submit'>comment</button>
                 </div>
+            <% end %>
+                
                 <div class="comment-display-section">
                     <%= image_tag("avatar.jpg", :class => "avatar comment-avatar") %>
                     <h5>Tafang Joshua</h5>
                     <span>Lol this is not funny at all</span>
                 </div>
+                <hr>
+                <div class="comment-display-section">
+                    <%= image_tag("avatar.jpg", :class => "avatar comment-avatar") %>
+                    <h5>Tafang Joshua</h5>
+                    <span>Lol this is not funny at all</span>
+                </div>
+                <hr>
             </div>
         </div>
     <% end %>
