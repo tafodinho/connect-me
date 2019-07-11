@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   
   resources :posts
   resources :comments
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  resources :users, only: [:show]
+  
   root to: 'static_pages#home'
 
   devise_scope :user do

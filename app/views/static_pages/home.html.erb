@@ -2,6 +2,7 @@
     <%= render partial: 'posts/form', :locals => {:post => new_post}%>
 </div>
 
+<<<<<<< HEAD
     <% @posts.each do |post| %>
         <div class = "card col-lg-6 col-lg-offset-3 mt-3">
             <div class= "card-header">
@@ -52,4 +53,8 @@
             </div>
         </div>
     <% end %>
+=======
+<%= render partial: 'posts/show', :locals => {:posts => @posts}%>
+>>>>>>> 525620195fcb2c6911c3038f516c5243717914cb
 
+    
