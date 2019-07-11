@@ -9,14 +9,16 @@ class CommentsController < ApplicationController
   def new
     @posts = Post.all
     @comment = Comment.new
-    comment = Comment.new(post_id: params[:comment][:post_id], content: params[:comment][:content])
-    
-    if comment.save 
-      print success
-      render 'static_pages/home'
+    new_comment = Comment.new(comment_params)
+    new_comment.user = current_user
+
+    print new_comment.user_id
+    if new_comment.save 
+      print "success"
+      redirect_to root_path
     else
-      print failure
-      render 'static_pages/home'
+      print "failure"
+      redirect_to root_path
     end
     
   end
@@ -29,4 +31,9 @@ class CommentsController < ApplicationController
 
   def delete
   end
+
+  private 
+    def comment_params
+      params.require(:comment).permit(:post_id, :content)
+    end
 end
