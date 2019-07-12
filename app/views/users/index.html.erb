@@ -1,45 +1,29 @@
 <div class="middle-section col-sm-6 col-sm-offset-3">
     <% @users.each do |user|%>
-<<<<<<< HEAD
-
-        <%= link_to user_path(user) do %>
-            <div class="card col-sm-12 friend-box">
-                <%= image_tag(user.image, :class => "user-image mt-3") %> 
-                <div class="friend-content">
-                    <span><%= user.name %></span>
-                    <% if requested(user.id)%>
-                        <div>
-                            <button style="color: #4267b2" disabled>friend request sent</button>
+        <div class="card col-sm-12 friend-box">
+            <%= link_to user_path(user) do %><%= image_tag(user.image, :class => "user-image mt-3") %><% end %>
+            <div class="friend-content">
+                <span><%= user.name %></span>
+                <% if requested(user.id) %>
+                    <div>
+                        <button style="color: #4267b2" disabled>friend request sent</button>
+                        <%= link_to friendship_path(user, user_id: user.id), method: 'delete' do %>
                             <button>cancel request</button>
-                        </div>
-                    <% elsif is_friend(user.id)%>
-                        <div>
-                            <button style="color: #4267b2" disabled>friends</button>
-                            <button>unfriend</button>
-                        </div>
-                    <% else %>
-                        <%= link_to new_friendship_path(user, user_id: user.id) do %>
-                            <button>add friend</button>
-=======
-        <% if user.id != current_user.id %>
-            <%= link_to user_path(user) do %>
-                <div class="card col-sm-12 friend-box">
-                    <%= image_tag(user.image, :class => "user-image mt-3") %> 
-                    <div class="friend-content">
-                        <span><%= user.name %></span>
-                        <% if requested(user.id)%>
-                            <button style="color: #4267b2" disabled>friend request sent</button>
-                        <% elsif is_friend(user.id)%>
-                            <button style="color: #4267b2" disabled>friends</button>
-                        <% else %>
-                            <%= link_to new_friendship_path(user, user_id: user.id) do %>
-                                <button>add friend</button>
-                            <% end %>
->>>>>>> 8ffece3b6f0effdf545f2429d39102719d00d2b8
                         <% end %>
                     </div>
-                </div>
-            <% end %>
-        <% end %>
+                <% elsif is_friend(user.id)%>
+                    <div>
+                        <button style="color: #4267b2" disabled>friends</button>
+                        <%= link_to friendship_path(user, user_id: user.id), method: 'delete' do %>
+                            <button>unfriend</button>
+                        <% end %>
+                    </div>
+                <% else %>
+                    <%= link_to new_friendship_path(user, user_id: user.id) do %>
+                        <button>add friend</button>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
     <% end %>
 </div>

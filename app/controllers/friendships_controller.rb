@@ -43,5 +43,14 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
+    relationship = Friendship.where(user_id: params[:user_id], friend_id: current_user).or(Friendship.where(user_id: current_user, friend_id: params[:user_id]))
+    if relationship.destroy_all
+      print "delete success"
+      redirect_back(fallback_location: users_path)
+    else
+      print "delte fail"
+      redirect_back(fallback_location: users_path)
+    end
+    
   end
 end
