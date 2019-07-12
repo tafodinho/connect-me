@@ -13,7 +13,25 @@ class FriendshipsController < ApplicationController
     
   end
 
+  def friend_requests 
+    @friend_requests = Friendship.where(friend_id: current_user, status: 0)
+    render 'friend_request'
+  end
+
   def create
+  end
+
+  def edit
+    relationship = Friendship.where(user_id: params[:user_id], friend_id: current_user)
+    
+
+    if relationship.update_all(status: 1)
+      print "pass"
+      redirect_back(fallback_location: friend_requests_path)
+    else
+      print "fail"
+      redirect_back(fallback_location: friend_requests_path)
+    end
   end
 
   def update

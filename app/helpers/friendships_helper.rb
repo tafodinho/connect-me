@@ -4,4 +4,10 @@ module FriendshipsHelper
 
         return true if request.count > 0 else return false
     end
+
+    def is_friend(user_id) 
+        request = Friendship.where(user_id: user_id, friend_id: current_user, status: 1)
+
+        return true if request.count > 0 else return false
+    end
 end

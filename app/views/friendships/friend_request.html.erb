@@ -1,0 +1,24 @@
+
+<% @friend_requests.each do |friend_request| %>
+    <%= friend_request.user.name %>
+<% end %>
+
+<div class="middle-section col-sm-6 col-sm-offset-3">
+    <% @friend_requests.each do |friend_request|%>
+        <%= link_to user_path(friend_request.user) do %>
+            <div class="card col-sm-12 friend-box">
+                <%= image_tag(friend_request.user.image, :class => "user-image mt-3") %> 
+                <div class="friend-content">
+                    <span><%= friend_request.user.name %></span>
+                    <% if is_friend(friend_request.user.id)%>
+                        <button style="color: #4267b2" disabled>friends</button>
+                    <% else %>
+                        <%= link_to edit_friendship_path(friend_request.user, user_id: friend_request.user.id) do %>
+                            <button>accept request</button>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+            <% end %>
+    <% end %>
+</div>

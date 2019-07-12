@@ -1,11 +1,12 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  before_create :add_missing_piece
 
-  has_many :friendships 
-  has_many :post 
-  has_many :comments 
-  has_many :likes 
+  has_many :friendships, dependent: :destroy
+  has_many :post, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :friends, through: :friendship
 
   # validates :name, presence: true 
@@ -24,4 +25,12 @@ class User < ApplicationRecord
         user.image = auth.info.image # assuming the user model has an image
       end
     end
+
+    def add_missing_piece
+      if self.image.nil?
+        self.image = "avatar.jpeg"
+        self.name = "Anonymous"
+      end
+    end
+
 end
