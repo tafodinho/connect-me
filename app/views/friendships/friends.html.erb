@@ -6,7 +6,10 @@
                     <%= image_tag(friend.user.image, :class => "user-image mt-3") %> 
                     <div class="friend-content">
                         <span><%= friend.user.name %></span>
-                        <button disabled>friends</button>
+                        <div>
+                            <button disabled>friends</button>
+                            <button>unfriend</button>
+                        </div>
                     </div>
                 </div>
             <% end %>
@@ -16,7 +19,10 @@
                     <%= image_tag(friend.friend.image, :class => "user-image mt-3") %> 
                     <div class="friend-content">
                         <span><%= friend.friend.name %></span>
-                        <button disabled>friends</button>
+                        <div>
+                            <button disabled>friends</button>
+                            <button>unfriend</button>
+                        </div>
                     </div>
                 </div>
             <% end %>

@@ -7,9 +7,15 @@
                 <div class="friend-content">
                     <span><%= user.name %></span>
                     <% if requested(user.id)%>
-                        <button style="color: #4267b2" disabled>friend request sent</button>
+                        <div>
+                            <button style="color: #4267b2" disabled>friend request sent</button>
+                            <button>cancel request</button>
+                        </div>
                     <% elsif is_friend(user.id)%>
-                        <button style="color: #4267b2" disabled>friends</button>
+                        <div>
+                            <button style="color: #4267b2" disabled>friends</button>
+                            <button>unfriend</button>
+                        </div>
                     <% else %>
                         <%= link_to new_friendship_path(user, user_id: user.id) do %>
                             <button>add friend</button>
