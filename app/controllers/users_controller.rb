@@ -5,5 +5,8 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        if nil == @user.image 
+            @user.image = "avatar.jpeg"
+        end
     end
 end
