@@ -6,7 +6,7 @@
             <span><%= user.name %></span>
             <%= link_to new_friendship_path(user, user_id: user.id) do %>
                 <% if requested(user.id)%>
-                    <button class="btn disabled">friend request send</button>
+                    <button class="disabled">friend request send</button>
                 <% else %>
                     <button>add friend</button>
                 <% end %>
