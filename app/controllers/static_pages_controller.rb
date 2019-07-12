@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
   def home
     @posts = Post.all
     @comment = Comment.new
+    @users = User.limit(10)
   end
 
   private 

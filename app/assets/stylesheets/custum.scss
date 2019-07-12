@@ -118,3 +118,23 @@ h5 {
 .comment-avatar {
   width: 6%;
 }
+.friend-box {
+  padding: 20px;
+
+  img {
+    float: left;
+    margin-top: 5px;
+  }
+  .friend-content {
+      float: left;
+      display: flex;
+      flex-direction: column;
+      padding: 5px 12px 5px 12px;
+
+      button {
+        margin-top: 5px;
+        background: #f5f6f7;
+        border: 1px solid #ccd0d5;
+      }
+  }
+}

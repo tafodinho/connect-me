@@ -1,0 +1,11 @@
+<div class="middle-section col-sm-6 col-sm-offset-3">
+    <% @users.each do |user|%>
+    <div class="card col-sm-12 friend-box">
+        <img src="<%= user.image %>" alt="" >
+        <div class="friend-content">
+            <span><%= user.name %></span>
+            <button>add friend</button>
+        </div>
+    </div>
+    <% end %>
+</div>
