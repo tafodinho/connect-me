@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :friends, through: :friendship
 
-  # validates :name, presence: true 
+  validates :name, presence: true 
   validates :email, presence: true
   
   devise :database_authenticatable, :registerable,
@@ -29,7 +29,6 @@ class User < ApplicationRecord
     def add_missing_piece
       if self.image.nil?
         self.image = "avatar.jpeg"
-        self.name = "Anonymous"
       end
     end
 
