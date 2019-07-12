@@ -1,13 +1,14 @@
+
 <div class="middle-section col-sm-6 col-sm-offset-3">
     <% @friends.each do |friend|%>
-        <% if friend.friend_id == current_user %>
+        <% if friend.friend_id == current_user.id %>
             <div class="card col-sm-12 friend-box">
                 <%= link_to user_path(friend.user) do %><%= image_tag(friend.user.image, :class => "user-image mt-3") %><% end %>
                 <div class="friend-content">
                     <span><%= friend.user.name %></span>
                     <div>
                         <button disabled>friends</button>
-                        <%= link_to friendship_path(freind.user, user_id: friend.user.id), method: 'delete' do %>
+                        <%= link_to friendship_path(friend.user, user_id: friend.user.id), method: 'delete' do %>
                             <button>unfriend</button>
                         <% end %>
                     </div>
