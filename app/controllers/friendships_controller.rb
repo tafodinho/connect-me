@@ -18,6 +18,11 @@ class FriendshipsController < ApplicationController
     render 'friend_request'
   end
 
+  def friends
+    @friends = Friendship.where(friend_id: current_user, status: 1).or(Friendship.where(user_id: current_user, status: 1))
+  end
+
+
   def create
   end
 
