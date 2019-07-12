@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'friendships/new'
+  get 'friendships/create'
+  get 'friendships/update'
+  get 'friendships/destroy'
   get 'likes/index'
   get 'likes/new'
   get 'likes/create'
@@ -15,6 +19,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :comments
   resources :likes
+  resource :friendship
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
