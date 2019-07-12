@@ -1,0 +1,14 @@
+<div class="middle-section col-sm-6 col-sm-offset-3">
+    <% @friends.each do |friend|%>
+
+        <%= link_to user_path(friend.friend) do %>
+            <div class="card col-sm-12 friend-box">
+                <%= image_tag(friend.friend.image, :class => "user-image mt-3") %> 
+                <div class="friend-content">
+                    <span><%= friend.friend.name %></span>
+                    <button disabled>friends</button>
+                </div>
+            </div>
+            <% end %>
+    <% end %>
+</div>

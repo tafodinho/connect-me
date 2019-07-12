@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'comments/delete'
   get '/users', to: 'users#index'
   get '/friend_requests', to: 'friendships#friend_requests'
+  get '/friends', to: 'friendships#friends'
   
   resources :posts
   resources :comments
