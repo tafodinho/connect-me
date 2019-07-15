@@ -3,8 +3,6 @@ class CommentsController < ApplicationController
     @comments = Comment.all
   end
 
-  def show
-  end
 
   def new
     @posts = Post.all
@@ -23,8 +21,7 @@ class CommentsController < ApplicationController
     
   end
 
-  def create
-  end
+  
 
   def update
   end

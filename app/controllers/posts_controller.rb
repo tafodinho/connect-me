@@ -24,10 +24,9 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
-    @post.user = current_user
+    
     respond_to do |format|
-      if @post.save
+      if current_user.post.build(post_params).save
         format.html { redirect_to :controller => 'static_pages', :action => 'home', notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else

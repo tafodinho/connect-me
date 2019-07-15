@@ -12,8 +12,8 @@
                        <%= fa_icon 'ellipsis-h'%>
                     </i>
                     <div class="dropdown-menu pull-right" aria-labelledby="dropdownMenu2">
-                        <%= link_to "Edit", edit_post_path(post), :class=>"mod-links"%>
-                        <%= link_to "Remove", post, :method => :delete, :data => {:confirm => "You Sure?"},:class=>"mod-links" %>
+                        <%= link_to "Edit", edit_user_post_path(current_user,post), :class=>"mod-links"%>
+                        <%= link_to "Remove", [current_user,post], :method => :delete, :data => {:confirm => "You Sure?"},:class=>"mod-links" %>
                     </div>
                 </div>
             </div>
@@ -24,11 +24,11 @@
             </div>
             <hr>
             <div class="card-footer footer-card text-muted">
-                <div class = "col-lg-6"><%= post.likes.count%> <%= link_to "Like", new_like_path(post, post_id: post.id) %></div>
+                <div class = "col-lg-6"><%= post.likes.count%> <%= link_to "Like", new_user_post_like_path(current_user,post) %></div>
                 <div class = "col-lg-6"><%= post.comments.count%> comments </div> 
             </div>
             <div class="comment card-footer">
-            <%= form_for Comment.new, url: new_comment_path(), method: 'get' do |f| %>
+            <%= form_for Comment.new, url: new_user_post_comment_path(current_user, post), method: 'get' do |f| %>
                 <div class="comment-section">
                     <input type="hidden" value='<%= post.id %>', name='comment[post_id]' class="comment-avatar">
                     <%= f.text_field :content, class_name: "comment_input" %>
