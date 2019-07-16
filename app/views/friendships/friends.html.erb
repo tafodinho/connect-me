@@ -21,7 +21,7 @@
                     <span><%= friend.friend.name %></span>
                     <div>
                         <button disabled>friends</button>
-                        <%= link_to friendship_path(friend.friend, user_id: friend.friend.id), method: 'delete' do %>
+                        <%= link_to user_friendship_path(friend.friend, user_id: friend.friend.id), method: 'delete' do %>
                             <button>unfriend</button>
                         <% end %>
                     </div>
