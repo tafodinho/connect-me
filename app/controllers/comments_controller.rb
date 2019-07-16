@@ -1,11 +1,7 @@
 class CommentsController < ApplicationController
-  def index
-    @comments = Comment.all
-  end
-
+  before_action :check_login
 
   def new
-    @posts = Post.all
     @comment = Comment.new
     new_comment = Comment.new(comment_params)
     new_comment.user = current_user
@@ -32,5 +28,9 @@ class CommentsController < ApplicationController
   private 
     def comment_params
       params.require(:comment).permit(:post_id, :content)
+    end
+     
+    def check_login 
+      redirect_to login_path if !user_signed_in?
     end
 end

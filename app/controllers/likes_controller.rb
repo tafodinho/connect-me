@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  before_action :check_login
   def index
   end
 
@@ -28,5 +29,8 @@ class LikesController < ApplicationController
   private
     def like_params
       # params.reuire(:like).permit(:post_id)
+    end
+    def check_login 
+      redirect_to login_path if !user_signed_in?
     end
 end

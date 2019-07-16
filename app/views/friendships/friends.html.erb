@@ -8,7 +8,7 @@
                     <span><%= friend.user.name %></span>
                     <div>
                         <button disabled>friends</button>
-                        <%= link_to friendship_path(friend.user, user_id: friend.user.id), method: 'delete' do %>
+                        <%= link_to user_friendship_path(friend.user, user_id: friend.user.id), method: 'delete' do %>
                             <button>unfriend</button>
                         <% end %>
                     </div>

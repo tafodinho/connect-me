@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy],:check_login
 
   # GET /posts
   # GET /posts.json
@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = logged_in_user.posts.build
   end
 
   # GET /posts/1/edit
@@ -69,5 +69,10 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:content)
+    end
+
+    private 
+    def check_login 
+      redirect_to login_path if !user_signed_in?
     end
 end

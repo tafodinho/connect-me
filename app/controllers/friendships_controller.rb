@@ -1,4 +1,5 @@
 class FriendshipsController < ApplicationController
+  before_action :check_login
   def new
     friendship = Friendship.new(friend_id: params[:user_id], status: 0)
     friendship.user = current_user
@@ -52,5 +53,9 @@ class FriendshipsController < ApplicationController
       redirect_back(fallback_location: users_path)
     end
     
+  end
+  private 
+  def check_login 
+    redirect_to login_path if !user_signed_in?
   end
 end
