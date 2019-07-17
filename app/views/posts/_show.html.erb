@@ -1,5 +1,5 @@
  <% posts.each do |post| %>
-    <% if Friendship.is_friend(post.user.id, current_user) || post.user.id == current_user.id %>
+    <% if Friendship.is_friend(post.user.id) || post.user.id == current_user.id %>
         <div class = "card col-lg-12 mt-3">
             <div class= "card-header">
                 <%= image_tag(post.user.image, :class => "avatar mt-3") %> 
