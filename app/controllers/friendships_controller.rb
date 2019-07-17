@@ -31,7 +31,7 @@ class FriendshipsController < ApplicationController
     relationship = Friendship.where(user_id: params[:user_id], friend_id: current_user)
     
 
-    if relationship.update_all(status: 1)
+    if relationship.update(status: 1)
       print "pass"
       redirect_back(fallback_location: friend_requests_path)
     else
