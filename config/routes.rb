@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/friend_requests', to: 'friendships#friend_requests'
   get '/friends', to: 'friendships#friends'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks' }
 
   resources :users, only: [:show] do
     resource :friendship
@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
     delete 'logout', to: 'devise/sessions#destroy'
-  end 
+  end
 end
