@@ -1,0 +1,11 @@
+<div class="middle-section col-lg-6 col-lg-offset-3">
+    <div class = "card col-lg-12 mb-3">
+        <%= render partial: 'posts/form', :locals => {:post => Post.new}%>
+    </div>
+
+    <%= render partial: 'posts/show', :locals => {:posts => @posts}%>
+</div>  
+
+    
+
+        

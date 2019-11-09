@@ -1,0 +1,49 @@
+ <% posts.each do |post| %>
+    <% if Friendship.is_friend(post.user.id) || post.user.id == current_user.id %>
+        <div class = "card col-lg-12 mt-3">
+            <div class= "card-header">
+                <%= image_tag(post.user.image, :class => "avatar mt-3") %> 
+                <div class="col-lg-6 title-name">
+                <h4><%= post.user.name %></h4>
+                <p class="text-muted">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
+                </div>
+                <div class="dropdown pull-right">
+                    <i class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       <%= fa_icon 'ellipsis-h'%>
+                    </i>
+                    <div class="dropdown-menu pull-right" aria-labelledby="dropdownMenu2">
+                        <%= link_to "Edit", edit_user_post_path(current_user,post), :class=>"mod-links"%>
+                        <%= link_to "Remove", [current_user,post], :method => :delete, :data => {:confirm => "You Sure?"},:class=>"mod-links" %>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body clear">
+                <p>
+                    <%= post.content %>
+                </p>
+            </div>
+            <hr>
+            <div class="card-footer footer-card text-muted">
+                <div class = "col-lg-6"><%= post.likes.count%> <%= link_to "Like", new_user_post_like_path(current_user,post) %></div>
+                <div class = "col-lg-6"><%= post.comments.count%> comments </div> 
+            </div>
+            <div class="comment card-footer">
+            <%= form_for Comment.new, url: new_user_post_comment_path(current_user, post), method: 'get' do |f| %>
+                <div class="comment-section">
+                    <input type="hidden" value='<%= post.id %>', name='comment[post_id]' class="comment-avatar">
+                    <%= f.text_field :content, class_name: "comment_input" %>
+                    <button type='submit'>comment</button>
+                </div>
+            <% end %>
+                <% post.comments.each do |comment| %>
+                    <div class="comment-display-section">
+                        <%= image_tag(comment.user.image, :class => "avatar comment-avatar") %>
+                        <h5><%= comment.user.name %></h5>
+                        <span><%= comment.content %></span>
+                    </div>
+                    <hr>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+<% end %>
