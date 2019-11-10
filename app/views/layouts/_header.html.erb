@@ -1,12 +1,12 @@
 <header class="navbar navbar-fixed-top">
   <div class="container">
-    <%= link_to "Facebook", root_path, id: "logo" %>
+    <%= link_to "ConnectMe", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Friends", friends_path %></li>
         <% if user_signed_in? %>
+          <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to "Friends", friends_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Account <b class="caret"></b>
