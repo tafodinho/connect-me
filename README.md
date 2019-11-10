@@ -1,27 +1,17 @@
-# connect-me
-A social media app with features similar to that of facebook 
-you can check out details description [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project)
+# ConnectMe
 
-## Built With
-
-Ruby on rails, HTML, CSS
-
-## Contributors
-
-* **Tafang Joshua**  - [Profile](https://github.com/tafodinho)
-
-# live version
-[connect me](https://josh-connect-me-app.herokuapp.com)
-
-
-
-# ConnectBook
-
-ConnectBook is a project based in facebook. It has a features of the original app such as: 
-* Upload posts including photos
+Connect me is a social media app with features similar to that of the original facebook it has functionalities such as
+* Upload posts
+* View friends
+* Send friend request
+* Accept friend request
+* Reject friend request
+* Unfriend user
 * Comment and like a post
-* Upload profile and wallpaper photos
 * Add, delete, search friends
+
+## live version
+[connect me](https://josh-connect-me-app.herokuapp.com)
 
 ## Getting Started
 
@@ -29,7 +19,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-This project is built with Ruby on Rails and Javascript. Before try to run it locally make sure you have [Ruby](https://www.ruby-lang.org/en/documentation/installation/), and [Ruby on Rails](https://www.tutorialspoint.com/ruby-on-rails/rails-installation.htm) installed. 
+This project is built with Ruby on Rails. Before try to run it locally make sure you have [Ruby](https://www.ruby-lang.org/en/documentation/installation/), and [Ruby on Rails](https://www.tutorialspoint.com/ruby-on-rails/rails-installation.htm) installed. 
 
 After installing check your ruby version with `ruby -v`
 
@@ -74,7 +64,6 @@ You can deploy the project on Heroku using the following steps:
 ## Built With
 
 * HTML5,CSS3
-* Javascript
 * Ruby On Rails
 
 ## Authors
