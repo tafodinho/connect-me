@@ -1,6 +1,6 @@
 # ConnectMe
 
-Connect me is a social media app with features similar to that of the original facebook it has functionalities such as
+Connect me is a social media app with features similar to that of the original Facebook. It has functionalities such as:
 * Upload posts
 * View friends
 * Send friend request
